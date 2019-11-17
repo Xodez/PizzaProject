@@ -1,0 +1,15 @@
+{
+  "name": "view_example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "view.js",
+  "scripts": {
+    "dev": "nodemon view.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs": "^2.7.1"
+  }
+}
