@@ -14,9 +14,12 @@
               <h2>Variable</h2>
               <p><%= tagline %></p>
               <ul>
-                  <% drinks.forEach(function(drink) { %>
-                       <li><%= drink.name %> - <%= drink.drunkness %></li>
-                  <% }); %>
+                  <select name="cars">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      <option value="fiat">Fiat</option>
+                      <option value="audi">Audi</option>
+                  </select>
               </ul>
            </div>
         </main>
