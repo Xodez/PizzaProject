@@ -1,44 +1,17 @@
 const url = require('url');
 
-exports.sampleRequest = function (req, res) {
-    const reqUrl = url.parse(req.url, true);
-    var name = 'World';
-    if (reqUrl.query.name) {
-        name = reqUrl.query.name
-    }
+ejs.renderFile(index_path, {drinks: drinks, tagline: tagline}, (err, data) => {
+    console.log(err || data);
+    res.end(data);
+})
 
-    var response = {
-        "text": "Hello " + name
-    };
-
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(response));
-};
-
-exports.testRequest = function (req, res) {
-    body = '';
-
-    req.on('data', function (chunk) {
-        body += chunk;
+else
+if (req.url === '/about')
+    ejs.renderFile(about_path, (err, data) => {
+        console.log(err || data);
+        res.end(data);
     });
-
-    req.on('end', function () {
-
-        postBody = JSON.parse(body);
-
-        var response = {
-            "text": "Post Request Value is  " + postBody.value
-        };
-
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
-    });
-};
-
-exports.invalidRequest = function (req, res) {
+else {
     res.statusCode = 404;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Invalid Request');
-};
+    res.end('Not Found');
+}
