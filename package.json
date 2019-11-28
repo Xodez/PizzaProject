@@ -1,0 +1,23 @@
+{
+  "name": "pizzaproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xodez/PizzaProject.git"
+  },
+  "author": "#",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xodez/PizzaProject/issues"
+  },
+  "homepage": "https://github.com/Xodez/PizzaProject#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "node": "^13.1.0"
+  }
+}
