@@ -1,5 +1,6 @@
 const http = require('http');
 const url = require('url');
+const fs = require('fs');
 
 module.exports = http.createServer((req, res) => {
 
@@ -7,22 +8,28 @@ module.exports = http.createServer((req, res) => {
     const reqUrl = url.parse(req.url, true);
 
     // GET Endpoint
-    if (reqUrl.pathname == '/sample' && req.method === 'GET') {
+    if (reqUrl.pathname == '/' && req.method === 'GET') {
         console.log('Request Type:' +
             req.method + ' Endpoint: ' +
             reqUrl.pathname);
 
         service.sampleRequest(req, res);
 
-        // POST Endpoint
-    } else if (reqUrl.pathname == '/test' && req.method === 'POST') {
-        console.log('Request Type:' +
-            req.method + ' Endpoint: ' +
-            reqUrl.pathname);
+    } else if (reqUrl.pathname == '/css/LogIn.css') {
+        res.writeHead(200, {'Content-type': 'text/css'});
+        var fileContents = fs.readFileSync('../css/LogIn.css', 'utf8');
+        res.write(fileContents);
+        res.end();
 
-        service.testRequest(req, res);
+    }
+    else if (reqUrl.pathname == '/js/LogIn.js'){
+        res.writeHead(200, {'Content-type': 'text/css'});
+        var fileContents = fs.readFileSync('../js/LogIn.js', 'utf8');
+        res.write(fileContents);
+        res.end();
+    }
 
-    } else {
+    else {
         console.log('Request Type:' +
             req.method + ' Invalid Endpoint: ' +
             reqUrl.pathname);

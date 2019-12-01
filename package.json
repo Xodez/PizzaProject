@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Xodez/PizzaProject#readme",
   "dependencies": {
+    "connect": "^3.7.0",
     "ejs": "^3.0.1",
     "node": "^13.1.0"
   }
