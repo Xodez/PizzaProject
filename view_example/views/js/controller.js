@@ -23,27 +23,20 @@ module.exports = http.createServer((req, res) => {
         res.write(fileContents);
         res.end();
 
-    }
-    else if (reqUrl.pathname == '/js/LogIn.js'){
+    } else if (reqUrl.pathname == '/js/LogIn.js') {
         res.writeHead(200, {'Content-type': 'text/css'});
         fileContents = fs.readFileSync('../js/LogIn.js', 'utf8');
         res.write(fileContents);
         res.end();
-    }
-
-    else if (reqUrl.pathname == '/images/tasty-pepperoni-pizza-black-concrete-background_79782-103.jpg'){
+    } else if (reqUrl.pathname == '/images/tasty-pepperoni-pizza-black-concrete-background_79782-103.jpg') {
         img = fs.readFileSync('../images/tasty-pepperoni-pizza-black-concrete-background_79782-103.jpg');
-        res.writeHead(200, {'Content-Type': 'image/gif' });
+        res.writeHead(200, {'Content-Type': 'image/gif'});
         res.end(img, 'binary');
-    }
-
-    else if (reqUrl.pathname == '/images/tasty-pepperoni-.jpg'){
+    } else if (reqUrl.pathname == '/images/tasty-pepperoni-.jpg') {
         img = fs.readFileSync('../images/tasty-pepperoni-.jpg');
-        res.writeHead(200, {'Content-Type': 'image/gif' });
+        res.writeHead(200, {'Content-Type': 'image/gif'});
         res.end(img, 'binary');
-    }
-
-    else {
+    } else {
         console.log('Request Type:' +
             req.method + ' Invalid Endpoint: ' +
             reqUrl.pathname);
