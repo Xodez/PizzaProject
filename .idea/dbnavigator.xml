@@ -31,7 +31,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e">
-      <console name="Connection" type="STANDARD" schema="main" session="Main">select * from &quot;Costumer&quot;;</console>
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from "Costumer";]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -42,7 +42,11 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.sqlite_sequence" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Costumer" active-filter-id="" />
+    <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Costumer" active-filter-id="EMPTY_FILTER">
+      <filter id="9ed309a1-35ee-4da6-94a0-5d49f3a90059" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="Costumer ID" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
