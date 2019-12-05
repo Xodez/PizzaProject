@@ -2,11 +2,12 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const {parse} = require('querystring');
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('sqlite3').verbose()
+const LogIn = require('./LogIn.js');
+const Home = require('./Home.js');
 
 module.exports = http.createServer((req, res) => {
 
-    var LogIn = require('./LogIn.js');
 
     const reqUrl = url.parse(req.url, true);
 
@@ -19,8 +20,8 @@ module.exports = http.createServer((req, res) => {
         LogIn.BackgroundImage(req, res);
     } else if (reqUrl.pathname === '/auth' && req.method === 'POST') {
         LogIn.Authentication(req, res);
-    } else if (reqUrl.pathname === '/authenticated' && req.method === 'GET') {
-        LogIn.Authenticated(req, res);
+    } else if (reqUrl.pathname === '/css/Home.css' && req.method === 'GET') {
+        Home.HomeCSS(req, res);
     } else {
         console.log('Request Type:' +
             req.method + ' Invalid Endpoint: ' +
