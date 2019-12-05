@@ -5,9 +5,10 @@ const connect = require('connect');
 const sqlite3 = require("sqlite3").verbose();
 const {parse} = require('querystring');
 const reqData = require('./reqData');
-var string = fs.readFileSync('../pages/LogIn.ejs', 'utf-8');
-var fileContents;
-var img;
+let string = fs.readFileSync('../pages/LogIn.ejs', 'utf-8');
+let string2 = fs.readFileSync('../pages/Home.ejs', 'utf-8');
+let fileContents;
+let img;
 
 exports.LogIn = function (req, res) {
     const reqUrl = url.parse(req.url, true);
@@ -36,21 +37,19 @@ exports.invalidRequest = function (req, res) {
 
 exports.Authentication = function (req, res) {
     let body = '';
-    let auth = "test";
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
+    let auth;
     reqData.collectRequestData(req, result => {
         let sql = `SELECT Username u, Password p FROM Costumer 
                 WHERE Username = ? AND Password = ?`;
         db.get(sql, [result.username, result.password], (err, row) => {
             if (err) {
-                return console.error(err.message);
+                console.error(err.message);
             }
-            return row
-                ? auth = fs.readFileSync('../pages/Home.ejs', 'utf-8')
-                : auth = fs.readFileSync('../pages/LogIn.ejs', 'utf-8');
-
+            db.close();
+            row
+                ? res.end(ejs.render(string2))
+                : res.end(ejs.render(string));
         });
-        db.close();
-        res.end(auth);
     });
 };

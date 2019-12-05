@@ -19,6 +19,8 @@ module.exports = http.createServer((req, res) => {
         LogIn.BackgroundImage(req, res);
     } else if (reqUrl.pathname === '/auth' && req.method === 'POST') {
         LogIn.Authentication(req, res);
+    } else if (reqUrl.pathname === '/authenticated' && req.method === 'GET') {
+        LogIn.Authenticated(req, res);
     } else {
         console.log('Request Type:' +
             req.method + ' Invalid Endpoint: ' +
