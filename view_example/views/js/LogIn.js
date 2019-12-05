@@ -9,6 +9,8 @@ let string = fs.readFileSync('../pages/LogIn.ejs', 'utf-8');
 let string2 = fs.readFileSync('../pages/Home.ejs', 'utf-8');
 let fileContents;
 let img;
+let user = "";
+let pass = "";
 
 exports.LogIn = function (req, res) {
     const reqUrl = url.parse(req.url, true);
@@ -47,9 +49,14 @@ exports.Authentication = function (req, res) {
                 console.error(err.message);
             }
             db.close();
-            row
-                ? res.end(ejs.render(string2))
-                : res.end(ejs.render(string));
+            if (row == undefined){
+                res.end(ejs.render(string));
+            }
+            else{
+                user = result.username;
+                pass = result.password;
+                res.end(ejs.render(string2))
+            }
         });
     });
 };
