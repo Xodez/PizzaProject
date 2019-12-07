@@ -9,27 +9,32 @@
 <body>
 <div id="menu">
     <h1>
-        DN grill & lounge
+        Pizzas
     </h1>
     <ul class="menu">
-        <%for(let i = 0; i < pizzas.length; i++) {%>
-        <li class="menu-item">
-            <section>
-                <header>
-                    <h2>
-                        <%=pizzas[i].pizza%>
-                    </h2>
-                    <span class="spacer"></span>
-                    <span class="price">
-              $ 14.95
+        <% for(let i = 0; i < pizzas.length; i++) { %>
+            <% let pid = i + 1 %>
+            <li class="menu-item">
+                <section>
+                    <header>
+                        <h2>
+                            <%= pizzas[i].pizza %>
+                        </h2>
+                        <span class="spacer"></span>
+                        <span class="price">
+              $ <%= pizzas[i].price%>
             </span>
-                </header>
-                <p>
-                    Filthy good pork, straight from the barbeque, served with a light salad of spring leaves.
-                </p>
-            </section>
-        </li>
-        <% }%>
+                    </header>
+                    <p>
+                        <% for(let i = 0; i < ingredients.length; i++) { %>
+                            <% if (pid == ingredients[i].pid) { %>
+                                <%= ingredients[i].ingredient %>
+                            <% } %>
+                        <% } %>
+                    </p>
+                </section>
+            </li>
+        <% } %>
     </ul>
 </div>
 </body>

@@ -29,7 +29,8 @@ body {
     box-sizing: border-box;
 }
 
-.login-form input[type="submit"] {
+.login-form input[type="submit"],
+.login-form button[type="submit"] {
     width: 100%;
     padding: 15px;
     background-color: rgba(3, 1, 2, 0.58);

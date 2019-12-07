@@ -5,7 +5,7 @@ const connect = require('connect');
 const sqlite3 = require("sqlite3").verbose();
 const {parse} = require('querystring');
 const reqData = require('./reqData');
-const sqlQueries = require('./sqlQueries');
+const home = require('./Home');
 let string = fs.readFileSync('../pages/LogIn.ejs', 'utf-8');
 let string2 = fs.readFileSync('../pages/Home.ejs', 'utf-8');
 let fileContents;
@@ -55,7 +55,7 @@ exports.Authentication = function (req, res) {
             } else {
                 user = result.username;
                 pass = result.password;
-                sqlQueries.getPizzas(req, res);
+                home.getPizzas(req, res);
             }
         });
     });
