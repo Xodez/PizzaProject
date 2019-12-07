@@ -12,11 +12,12 @@
         DN grill & lounge
     </h1>
     <ul class="menu">
+        <%for(let i = 0; i < pizzas.length; i++) {%>
         <li class="menu-item">
             <section>
                 <header>
                     <h2>
-                        BBQ pulled pork
+                        <%=pizzas[i].pizza%>
                     </h2>
                     <span class="spacer"></span>
                     <span class="price">
@@ -28,6 +29,7 @@
                 </p>
             </section>
         </li>
+        <% }%>
     </ul>
 </div>
 </body>
