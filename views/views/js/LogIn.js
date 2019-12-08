@@ -25,9 +25,7 @@ exports.invalidRequest = function (req, res) {
 };
 
 exports.Authentication = function (req, res) {
-    let body = '';
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
-    let auth;
     reqData.collectRequestData(req, result => {
         let sql = `SELECT Username u, Password p FROM Costumer 
                 WHERE Username = ? AND Password = ?`;
@@ -35,13 +33,14 @@ exports.Authentication = function (req, res) {
             if (err) {
                 console.error(err.message);
             }
-            db.close();
             if (row == undefined) {
                 res.end(ejs.render(string));
+                db.close();
             } else {
                 user = result.username;
                 pass = result.password;
                 home.getPizzas(req, res);
+                db.close();
             }
         });
     });

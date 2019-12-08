@@ -31,12 +31,12 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e">
-      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[SELECT "Item name" i, "Price" p FROM "Non pizza items" ORDER BY "Price"]]></console>
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[INSERT into "Pizzas" values (null, ?)]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" object-ref="schemas/main/tables/Non pizza items" />
+      <object connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" object-ref="schemas/main/tables/Pizzas" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
@@ -46,7 +46,8 @@
     <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Non pizza items" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.sqlite_sequence" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Popular Pizzas" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Ingredients" active-filter-id="" />
+    <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Ingredients" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Pizzas" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Pizza Ingredients" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e" dataset="main.Costumer" active-filter-id="EMPTY_FILTER">
       <filter id="9ed309a1-35ee-4da6-94a0-5d49f3a90059" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
@@ -55,7 +56,9 @@
     </filter-actions>
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
-    <last-used-providers />
+    <last-used-providers>
+      <object-type object-type="TABLE" editor-provider="DATA" />
+    </last-used-providers>
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />

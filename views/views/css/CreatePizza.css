@@ -1,0 +1,44 @@
+body {
+    background-image: url(../images/tasty-pepperoni-pizza-black-concrete-background_79782-103.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100%;
+}
+
+.create-pizza {
+    width: 300px;
+    margin: 0 auto;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+
+.create-pizza input[type="input"],
+.create-pizza input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.create-pizza input[type="submit"],
+.create-pizza button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(3, 1, 2, 0.58);
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#menu {
+    padding: 20px;
+    width: 80%;
+    max-width: 1100px;
+    background: rgba(185, 175, 173, 0.7);
+    margin: 50px auto;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .4);
+}

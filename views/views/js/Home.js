@@ -60,6 +60,7 @@ exports.getPizzas = function (req, res) {
             ejs.renderFile(string2, {pizzas: pizzas, ingredients: ingredients, misc: misc}, (err, data) => {
                 if (err) throw err;
                 res.end(data);
+                db.close();
             });
         }
     });

@@ -6,12 +6,14 @@
     <link rel="stylesheet" type="text/css" href="../css/CreatePizza.css">
 </head>
 <body>
-<div class="create-pizza">
+<div class="create-pizza" id="menu">
     <h1>Create your pizza</h1>
-    <form action="auth" method="POST">
+    <form action="/create" method="POST">
         <input type="text" name="pizzaName" placeholder="Pizza name" required>
-        <input type="checkbox" name="Mushrooms" value="Mushrooms">
-
+        <% for (let i = 0; i < ingredients.length; i++){ %>
+            <input type="checkbox" name="Ingredients" value="<%=ingredients[i].id%>" id="<%=ingredients[i].name%>"><label for="<%=ingredients[i].name%>"><%=ingredients[i].name%> $<%=ingredients[i].price%></label>
+        <% } %>
+        <button type="submit">Create pizza</button>
     </form>
 </div>
 </body>
