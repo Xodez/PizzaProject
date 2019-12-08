@@ -14,22 +14,8 @@ let user = "";
 let pass = "";
 
 exports.LogIn = function (req, res) {
-    const reqUrl = url.parse(req.url, true);
     res.statusCode = 200;
     res.end(ejs.render(string));
-};
-
-exports.LogInCSS = function (req, res) {
-    res.writeHead(200, {'Content-type': 'text/css'});
-    fileContents = fs.readFileSync('../css/LogIn.css', 'utf8');
-    res.write(fileContents);
-    res.end();
-};
-
-exports.BackgroundImage = function (req, res) {
-    img = fs.readFileSync('../images/tasty-pepperoni-pizza-black-concrete-background_79782-103.jpg');
-    res.writeHead(200, {'Content-Type': 'image/gif'});
-    res.end(img, 'binary');
 };
 
 exports.invalidRequest = function (req, res) {

@@ -11,14 +11,6 @@ let string2 = '../pages/Home.ejs';
 let pizzas = [];
 let ingredients = [];
 
-
-exports.HomeCSS = function (req, res) {
-    res.writeHead(200, {'Content-type': 'text/css'});
-    fileContents = fs.readFileSync('../css/Home.css', 'utf8');
-    res.write(fileContents);
-    res.end();
-};
-
 exports.getPizzas = function (req, res) {
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
     let sql = `SELECT "Popular Pizza" p, "Pizza ID" pid, price pr, "Image ID" imid FROM Pizzas ORDER BY "Pizza ID"`;
@@ -56,10 +48,4 @@ exports.getPizzas = function (req, res) {
             });
         }
     });
-};
-
-exports.Image = function (req, res) {
-    img = fs.readFileSync('../images/' + req.pathname);
-    res.writeHead(200, {'Content-Type': 'image/gif'});
-    res.end(img, 'binary');
 };

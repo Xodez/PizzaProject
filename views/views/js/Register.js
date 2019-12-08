@@ -15,13 +15,6 @@ exports.Reg = function (req, res) {
     res.end(ejs.render(string));
 };
 
-exports.RegCSS = function (req, res) {
-    res.writeHead(200, {'Content-type': 'text/css'});
-    fileContents = fs.readFileSync('../css/Register.css', 'utf8');
-    res.write(fileContents);
-    res.end();
-};
-
 exports.Register = function (req, res) {
     let body = '';
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
