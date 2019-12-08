@@ -83,8 +83,8 @@ h2 {
     color: #000;
 }
 
-.one {
-    background-image: url("../images/tasty-pepperoni-.jpg");
-    height: 50px;
-    width: 50px;
+.image {
+    height: 100px;
+    width: 100px;
+    mix-blend-mode: multiply;
 }

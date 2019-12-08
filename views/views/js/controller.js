@@ -23,9 +23,10 @@ module.exports = http.createServer((req, res) => {
             Register.RegCSS(req, res);
         } else if (reqUrl.pathname === '/images/tasty-pepperoni-pizza-black-concrete-background_79782-103.jpg') {
             LogIn.BackgroundImage(req, res);
-        } else if (reqUrl.pathname === '/images/tasty-pepperoni-.jpg') {
+        } else if (reqUrl.pathname === '/images/pepperoni-pizza.png') {
             Home.Image(req, res);
-        } else if (reqUrl.pathname === '/auth' && req.method === 'POST') {
+        }
+        else if (reqUrl.pathname === '/auth' && req.method === 'POST') {
             LogIn.Authentication(req, res);
         } else if (reqUrl.pathname === '/css/Home.css' && req.method === 'GET') {
             Home.HomeCSS(req, res);

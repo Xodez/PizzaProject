@@ -59,7 +59,7 @@ exports.getPizzas = function (req, res) {
 };
 
 exports.Image = function (req, res) {
-    img = fs.readFileSync('../images/tasty-pepperoni-.jpg');
+    img = fs.readFileSync('../images/' + req.pathname);
     res.writeHead(200, {'Content-Type': 'image/gif'});
     res.end(img, 'binary');
 };
