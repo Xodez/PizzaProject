@@ -7,6 +7,7 @@ const LogIn = require('./LogIn.js');
 const Home = require('./Home.js');
 const Register = require('./Register');
 const HTMLrequests = require('./HTMLrequests');
+const CreatePizza = require("./CreatePizza");
 
 module.exports = http.createServer((req, res) => {
 
@@ -20,6 +21,8 @@ module.exports = http.createServer((req, res) => {
             Register.Register(req, res);
         } else if (reqUrl.pathname.includes('.css')) {
             HTMLrequests.CSS(req, res);
+        } else if (reqUrl.pathname === '/create') {
+            CreatePizza.CreatePizza(req, res);
         } else if (reqUrl.pathname.includes('.jpg') || reqUrl.pathname.includes('.png')) {
             HTMLrequests.Image(req, res);
         } else if (reqUrl.pathname === '/auth' && req.method === 'POST') {

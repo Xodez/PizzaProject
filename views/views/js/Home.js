@@ -5,15 +5,14 @@ const connect = require('connect');
 const sqlite3 = require("sqlite3").verbose();
 const {parse} = require('querystring');
 const reqData = require('./reqData');
-let fileContents;
-let img;
 let string2 = '../pages/Home.ejs';
-let pizzas = [];
-let ingredients = [];
-let misc = [];
-
 
 exports.getPizzas = function (req, res) {
+    let fileContents;
+    let img;
+    let pizzas = [];
+    let ingredients = [];
+    let misc = [];
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
     let sql = `SELECT "Popular Pizza" p, "Pizza ID" pid, price pr, "Image ID" imid FROM Pizzas ORDER BY "Pizza ID"`;
     db.all(sql, (err, row) => {
