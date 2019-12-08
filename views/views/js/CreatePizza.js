@@ -19,7 +19,7 @@ exports.CreatePizza = function (req, res) {
                 let ingredient = {
                     name: row.i,
                     price: row.p,
-                    id: row.ind,
+                    ind: row.ind,
                 };
                 ingredients.push(ingredient);
             });

@@ -11,7 +11,7 @@
     <form action="/create" method="POST">
         <input type="text" name="pizzaName" placeholder="Pizza name" required>
         <% for (let i = 0; i < ingredients.length; i++){ %>
-            <input type="checkbox" name="Ingredients" value="<%=ingredients[i].id%>" id="<%=ingredients[i].name%>"><label for="<%=ingredients[i].name%>"><%=ingredients[i].name%> $<%=ingredients[i].price%></label>
+            <input type="checkbox" name="Ingredients" value="<%=ingredients[i].ind%>" id="<%=ingredients[i].name%>"><label for="<%=ingredients[i].name%>"><%=ingredients[i].name%> $<%=ingredients[i].price%></label>
         <% } %>
         <button type="submit">Create pizza</button>
     </form>
