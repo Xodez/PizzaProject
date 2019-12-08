@@ -20,12 +20,11 @@ module.exports = http.createServer((req, res) => {
             Register.Register(req, res);
         } else if (reqUrl.pathname.includes('.css')) {
             HTMLrequests.CSS(req, res);
-        }  else if (reqUrl.pathname.includes('.jpg') || reqUrl.pathname.includes('.png')) {
+        } else if (reqUrl.pathname.includes('.jpg') || reqUrl.pathname.includes('.png')) {
             HTMLrequests.Image(req, res);
         } else if (reqUrl.pathname === '/auth' && req.method === 'POST') {
             LogIn.Authentication(req, res);
-        }
-         else if (reqUrl.pathname === '/reg' && req.method === 'GET') {
+        } else if (reqUrl.pathname === '/reg' && req.method === 'GET') {
             Register.Reg(req, res);
         } else {
             console.log('Request Type:' +

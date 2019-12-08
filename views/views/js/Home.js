@@ -10,6 +10,8 @@ let img;
 let string2 = '../pages/Home.ejs';
 let pizzas = [];
 let ingredients = [];
+let misc = [];
+
 
 exports.getPizzas = function (req, res) {
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
@@ -29,6 +31,20 @@ exports.getPizzas = function (req, res) {
             });
         }
     });
+    sql = `SELECT "Item name" i, "Price" p FROM "Non pizza items" ORDER BY "Price"`;
+    db.all(sql, (err, row) => {
+        if (err) {
+            throw err;
+        } else {
+            row.forEach(row => {
+                let miscs = {
+                    misc: row.i,
+                    price: row.p,
+                };
+                misc.push(miscs);
+            });
+        }
+    });
     sql = `SELECT "Ingredient name" i, p."Pizza ID" pid FROM Ingredients i, "Pizza Ingredients" pi, Pizzas p 
             WHERE pi."Pizza ID" = p."Pizza ID" AND pi."Ingredient ID" = i."Ingredient ID" ORDER BY p."Pizza ID"`;
     db.all(sql, (err, row) => {
@@ -42,7 +58,7 @@ exports.getPizzas = function (req, res) {
                 };
                 ingredients.push(ingredient);
             });
-            ejs.renderFile(string2, {pizzas: pizzas, ingredients: ingredients}, (err, data) => {
+            ejs.renderFile(string2, {pizzas: pizzas, ingredients: ingredients, misc: misc}, (err, data) => {
                 if (err) throw err;
                 res.end(data);
             });

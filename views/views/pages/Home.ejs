@@ -13,8 +13,8 @@
     </h1>
     <ul class="menu">
         <% for(let i = 0; i < pizzas.length; i++) { %>
-            <%let pid = i + 1
-            let imid = pizzas[i].imid %>
+            <% let pid = i + 1
+                let imid = pizzas[i].imid %>
             <li class="menu-item">
                 <section>
                     <header>
@@ -26,13 +26,32 @@
               $ <%= pizzas[i].price %>
             </span>
                     </header>
-                    <img class="image" src="<%=imid%>" alt="">
+                    <img class="image" src="<%= imid %>" alt="">
                     <p>
                         <% for(let i = 0; i < ingredients.length; i++) { %>
                             <% if (pid == ingredients[i].pid) { %>
                                 <%= ingredients[i].ingredient %>
                             <% } %>
                         <% } %>
+                    </p>
+                </section>
+            </li>
+        <% } %>
+    </ul>
+    <ul class="menu">
+        <% for(let i = 0; i < misc.length; i++) { %>
+            <li class="menu-item">
+                <section>
+                    <header>
+                        <h2>
+                            <%= misc[i].misc %>
+                        </h2>
+                        <span class="spacer"></span>
+                        <span class="price">
+              $ <%= misc[i].price %>
+            </span>
+                    </header>
+                    <p>
                     </p>
                 </section>
             </li>
