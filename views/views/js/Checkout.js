@@ -33,3 +33,7 @@ exports.Checkout = function (req, res) {
         }
     });
 };
+
+exports.ConfirmOrder = function (req, res) {
+    res.end(ejs.render(fs.readFileSync('../pages/ConfirmOrder.ejs', 'utf-8')));
+};

@@ -41,6 +41,8 @@ module.exports = http.createServer((req, res) => {
             addToCart.cartAddeds(req, res);
         } else if (reqUrl.pathname === '/Checkout' && req.method === 'GET') {
             Checkout.Checkout(req, res);
+        } else if (reqUrl.pathname === '/ConfirmOrder' && req.method === 'POST') {
+            Checkout.ConfirmOrder(req, res);
         } else {
             console.log('Request Type:' +
                 req.method + ' Invalid Endpoint: ' +
