@@ -26,6 +26,11 @@ exports.invalidRequest = function (req, res) {
 
 exports.Authentication = function (req, res) {
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
+    db.run(`delete from pizzas where "Pizza ID" > 4`, function (err) {
+        if (err) {
+            console.error(err.message);
+        }
+    });
     reqData.collectRequestData(req, result => {
         let sql = `SELECT Username u, Password p FROM Costumer 
                 WHERE Username = ? AND Password = ?`;
