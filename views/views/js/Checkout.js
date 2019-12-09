@@ -10,6 +10,7 @@ let string = '../pages/Checkout.ejs';
 
 exports.Checkout = function (req, res) {
     let items = [];
+    let totalPrice = 0.0;
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
     let sql = `SELECT "Item" i, "Price" pr FROM "Order"`;
     db.all(sql, (err, row) => {
@@ -21,9 +22,10 @@ exports.Checkout = function (req, res) {
                     item: row.i,
                     price: row.pr,
                 };
+                totalPrice += row.pr;
                 items.push(item);
             });
-            ejs.renderFile(string, {items: items}, (err, data) => {
+            ejs.renderFile(string, {items: items, totalPrice: totalPrice}, (err, data) => {
                 if (err) throw err;
                 res.end(data);
                 db.close();

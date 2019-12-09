@@ -8,7 +8,17 @@
 <body>
 <div class="Checkout-form">
     <h1>Your Order</h1>
-    <%for (let i = 0; i < )%>
+    <% for (let i = 0; i < items.length; i++){ %>
+        <li id="menu"><%= items[i].item %>: <%= items[i].price %>$</li>
+    <% } %>
+    <li id="menu">Total Price: <%= totalPrice %>$</li>
+    <form action="/ConfirmOrder" method="post">
+        <select id="menu">
+            <option value="takeOut">Take Out</option>
+            <option value="delivery">Delivery</option>
+        </select>
+        <button type="submit">Confirm Order</button>
+    </form>
 </div>
 </body>
 </html>

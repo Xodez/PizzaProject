@@ -8,5 +8,41 @@ body {
 }
 
 .Checkout-form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: Tahoma, Geneva, sans-serif;
+}
 
+.Checkout-form h1 {
+    color: #ecebde;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+}
+
+.Checkout-form li,
+.Checkout-form select {
+    width: 100%;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#menu {
+    padding: 20px;
+    max-width: 1100px;
+    background: rgba(185, 175, 173, 0.7);
+    box-shadow: 0 0 50px rgba(0, 0, 0, .4);
+}
+
+.Checkout-form button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(3, 1, 2, 0.58);
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
 }
