@@ -31,7 +31,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e">
-      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[delete from pizzas where "Pizza ID" > 4;]]></console>
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[SELECT "Pizza ID" from "Pizzas" ORDER BY "Pizza ID" DESC LIMIT 1;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

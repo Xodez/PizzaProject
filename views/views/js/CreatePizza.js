@@ -38,25 +38,28 @@ exports.UploadPizza = function (req, res) {
     reqData.collectRequestData(req, result => {
         let sql = `SELECT "Price" p, "Ingredient ID" ind FROM "Ingredients" WHERE "Ingredient ID" = ?`;
         let ingredientPrice = [];
-        let callback = 0;
-        for (let i = 0; i < result.Ingredients.length + 1; i++) {
+        let update = 0;
+        for (let i = 0; i < (result.Ingredients.length); i++) {
             db.all(sql, [parseInt(result.Ingredients[i])], (err, row) => {
                 if (err) {
                     console.error(err.message);
                 }
-                if (callback === result.Ingredients.length) {
-                    db.close();
-                    insertPizza(req, res, ingredientPrice, result);
-                } else
+                if (i < result.Ingredients.length) {
                     row.forEach(row => {
                         let Ingredient = {
                             ingredientID: row.ind,
                             price: row.p,
                         };
+                        update++;
                         ingredientPrice.push(Ingredient);
-                        callback++;
+                        if (update === result.Ingredients.length) {
+                            db.close();
+                            insertPizza(req, res, ingredientPrice, result);
+                        }
                     });
+                }
             });
+
         }
     });
 };
@@ -71,9 +74,32 @@ function insertPizza(req, res, data, result) {
     db.run(sql, [result.pizzaName, totalPrice], function (err) {
         if (err) {
             console.error(err.message);
+        }
+    });
+    let pids = [];
+    sql = `SELECT "Pizza ID" pid from "Pizzas" ORDER BY "Pizza ID" DESC LIMIT 1`;
+    db.all(sql, (err, row) => {
+        if (err) {
+            throw err;
         } else {
-            db.close();
+            row.forEach(row => {
+                let pizza = {
+                    pid: row.pid,
+                };
+                pids.push(pizza);
+            });
+            sql = `insert into "Pizza Ingredients" values (?, ?)`;
+            for (let i = 0; i < data.length; i++) {
+                db.run(sql, [data[i].ingredientID, pids[0].pid], function (err) {
+                    if (err) {
+                        console.error(err.message);
+                    }
+                });
+            }
             Home.getPizzas(req, res);
+            db.close();
         }
     });
 }
+
+
