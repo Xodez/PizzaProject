@@ -33,7 +33,9 @@
                                 <%= ingredients[i].ingredient %>
                             <% } %>
                         <% } %>
-                        <button type="button" onclick="">Order</button>
+                    <form action="/cartAdded" method="post">
+                        <button type="submit" name="name" value="<%= pizzas[i].pizza %>">Order</button>
+                    </form>
                     </p>
                 </section>
             </li>
@@ -61,7 +63,9 @@
             </li>
         <% } %>
     </ul>
-    <a href="/create"><button type="button">Customize your own pizza</button></a>
+    <a href="/create">
+        <button type="button">Customize your own pizza</button>
+    </a>
 </div>
 </body>
 </html>

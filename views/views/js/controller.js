@@ -8,6 +8,7 @@ const Home = require('./Home.js');
 const Register = require('./Register');
 const HTMLrequests = require('./HTMLrequests');
 const CreatePizza = require("./CreatePizza");
+const addToCart = require("./addToCart");
 
 module.exports = http.createServer((req, res) => {
 
@@ -33,6 +34,8 @@ module.exports = http.createServer((req, res) => {
             LogIn.Authentication(req, res);
         } else if (reqUrl.pathname === '/reg' && req.method === 'GET') {
             Register.Reg(req, res);
+        } else if (reqUrl.pathname === '/cartAdded' && req.method === 'POST') {
+            addToCart.cartAdded(req, res);
         } else {
             console.log('Request Type:' +
                 req.method + ' Invalid Endpoint: ' +
