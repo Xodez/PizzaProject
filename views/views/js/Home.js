@@ -30,8 +30,8 @@ exports.getPizzas = function (req, res) {
             });
         }
     });
-    sql = `SELECT "Item name" i, "Price" p FROM "Non pizza items" ORDER BY "Price"`;
-    db.all(sql, (err, row) => {
+    let sql2 = `SELECT "Item name" i, "Price" p FROM "Non pizza items" ORDER BY "Price"`;
+    db.all(sql2, (err, row) => {
         if (err) {
             throw err;
         } else {
@@ -44,9 +44,9 @@ exports.getPizzas = function (req, res) {
             });
         }
     });
-    sql = `SELECT "Ingredient name" i, p."Pizza ID" pid FROM Ingredients i, "Pizza Ingredients" pi, Pizzas p 
+    let sql3 = `SELECT "Ingredient name" i, p."Pizza ID" pid FROM Ingredients i, "Pizza Ingredients" pi, Pizzas p 
             WHERE pi."Pizza ID" = p."Pizza ID" AND pi."Ingredient ID" = i."Ingredient ID" ORDER BY p."Pizza ID"`;
-    db.all(sql, (err, row) => {
+    db.all(sql3, (err, row) => {
         if (err) {
             throw err;
         } else {
