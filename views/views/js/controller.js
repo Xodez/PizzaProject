@@ -36,6 +36,8 @@ module.exports = http.createServer((req, res) => {
             Register.Reg(req, res);
         } else if (reqUrl.pathname === '/cartAdded' && req.method === 'POST') {
             addToCart.cartAdded(req, res);
+        } else if (reqUrl.pathname === '/cartAddeds' && req.method === 'POST') {
+            addToCart.cartAddeds(req, res);
         } else {
             console.log('Request Type:' +
                 req.method + ' Invalid Endpoint: ' +

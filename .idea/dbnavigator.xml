@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="316c70a3-ac23-4e58-b560-6cdc2e3e8e2e">
-        <schema name="main" object-types="view, table, column" />
+        <schema name="main" object-types="view, constraint, table, dataset trigger, index, column" />
       </connection>
     </loaded-nodes>
   </component>
