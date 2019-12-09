@@ -21,3 +21,11 @@ exports.CSS = function (req, res) {
     res.write(fileContents);
     res.end();
 };
+
+exports.JS = function (req, res) {
+    reqUrl = url.parse(req.url, true);
+    res.writeHead(200, {'Content-type': 'text/javascript'});
+    fileContents = fs.readFileSync('../' + reqUrl.pathname, 'utf8');
+    res.write(fileContents);
+    res.end();
+};

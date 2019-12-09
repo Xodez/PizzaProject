@@ -23,10 +23,12 @@ module.exports = http.createServer((req, res) => {
             HTMLrequests.CSS(req, res);
         } else if (reqUrl.pathname === '/create' && req.method === 'GET') {
             CreatePizza.CreatePizza(req, res);
-        }else if (reqUrl.pathname === '/create' && req.method === 'POST') {
+        } else if (reqUrl.pathname === '/create' && req.method === 'POST') {
             CreatePizza.UploadPizza(req, res);
         } else if (reqUrl.pathname.includes('.jpg') || reqUrl.pathname.includes('.png')) {
             HTMLrequests.Image(req, res);
+        } else if (reqUrl.pathname.includes('.js')) {
+            HTMLrequests.CSS(req, res);
         } else if (reqUrl.pathname === '/auth' && req.method === 'POST') {
             LogIn.Authentication(req, res);
         } else if (reqUrl.pathname === '/reg' && req.method === 'GET') {
