@@ -9,6 +9,7 @@ const Register = require('./Register');
 const HTMLrequests = require('./HTMLrequests');
 const CreatePizza = require("./CreatePizza");
 const addToCart = require("./addToCart");
+const Checkout = require("./Checkout");
 
 module.exports = http.createServer((req, res) => {
 
@@ -38,6 +39,8 @@ module.exports = http.createServer((req, res) => {
             addToCart.cartAdded(req, res);
         } else if (reqUrl.pathname === '/cartAddeds' && req.method === 'POST') {
             addToCart.cartAddeds(req, res);
+        } else if (reqUrl.pathname === '/Checkout' && req.method === 'GET') {
+            Checkout.Checkout(req, res);
         } else {
             console.log('Request Type:' +
                 req.method + ' Invalid Endpoint: ' +

@@ -26,6 +26,11 @@ exports.invalidRequest = function (req, res) {
 
 exports.Authentication = function (req, res) {
     let db = new sqlite3.Database('../../../sqlite/Pizza database.db');
+    db.run(`delete from "Order" where "Order ID" > 0`, function (err) {
+        if (err){
+            console.log(err.message);
+        }
+    });
     db.run(`delete from "Pizza Ingredients" where "Pizza ID" > 4`, function (err) {
         if (err) {
             console.error(err.message);
